@@ -31,11 +31,9 @@ class Wordfreq
 
     @@words.each do |word|
       if word != '' then @@counts[word] += 1
+      end
     end
-  end
       @@ordered_results = @@counts.sort_by{|keys, values| values}.reverse
-
-      puts @@ordered_results
   end
 
   def frequency(word)
@@ -43,7 +41,6 @@ class Wordfreq
   end
 
   def frequencies
-    # https://jerodsanto.net/2013/10/ruby-quick-tip-easily-count-occurrences-of-array-elements/
     return @@counts
   end
 
