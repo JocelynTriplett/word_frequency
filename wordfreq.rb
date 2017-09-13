@@ -25,16 +25,24 @@ class Wordfreq
     'were', 'will', 'with']
 
   def initialize(filename)
-    words = CSV.read(filename).join("','").downcase.gsub(/[^a-z0-9\s]/i, '').split(/ /) - STOP_WORDS
+    @@words = File.read(filename).downcase.gsub(/[^a-z0-9\s]/i, '').split(/ /) - STOP_WORDS
 
-    puts words
-
+    puts @@words
   end
 
   def frequency(word)
+
+
   end
 
   def frequencies
+    counts = Hash.new 0
+
+    @@words.each do |word|
+      counts[word] += 1
+    end
+    return counts
+
   end
 
   def top_words(number)
