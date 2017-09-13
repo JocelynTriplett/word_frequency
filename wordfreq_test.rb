@@ -30,37 +30,37 @@ class WordfreqTest < Minitest::Test
     assert_equal 1, frequencies['justice']
   end
 
-#   def test_top_words
-#     wf = Wordfreq.new fullpath('seneca_falls.txt')
-#     top_words = wf.top_words(5)
-#     assert_equal [
-#       ["her", 33], ["all", 12], ["which", 12], ["they", 7], ["their", 7]
-#     ], top_words
+  def test_top_words
+    wf = Wordfreq.new fullpath('seneca_falls.txt')
+    top_words = wf.top_words(5)
+    assert_equal [
+      ["her", 33], ["all", 12], ["which", 12], ["they", 7], ["their", 7]
+    ], top_words
+
+    wf = Wordfreq.new fullpath('emancipation_proclamation.txt')
+    top_words = wf.top_words(4)
+    assert_equal [
+      ["states", 20], ["united", 14], ["day", 8], ["shall", 7]
+    ], top_words
+  end
 #
-#     wf = Wordfreq.new fullpath('emancipation_proclamation.txt')
-#     top_words = wf.top_words(4)
-#     assert_equal [
-#       ["states", 20], ["united", 14], ["day", 8], ["shall", 7]
-#     ], top_words
-#   end
-#
-#   def test_report
-#     expected_output = <<EOF
-#     her | 33 *********************************
-#     all | 12 ************
-#   which | 12 ************
-#    they | 7  *******
-#   their | 7  *******
-#     she | 7  *******
-#    this | 6  ******
-#    them | 6  ******
-#   women | 6  ******
-#  rights | 6  ******
-# EOF
-#
-#     wf = Wordfreq.new fullpath('seneca_falls.txt')
-#     assert_output expected_output do
-#       wf.print_report
-#     end
-#   end
+  def test_report
+    expected_output = <<EOF
+    her | 33 *********************************
+    all | 12 ************
+  which | 12 ************
+   they | 7  *******
+  their | 7  *******
+    she | 7  *******
+   this | 6  ******
+   them | 6  ******
+  women | 6  ******
+ rights | 6  ******
+EOF
+
+    wf = Wordfreq.new fullpath('seneca_falls.txt')
+    assert_output expected_output do
+      wf.print_report
+    end
+  end
 end
