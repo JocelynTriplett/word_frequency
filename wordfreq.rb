@@ -52,13 +52,9 @@ class Wordfreq
   end
 
   def print_report
-    @@ordered_results.first(10).each{|result|
-      word = result[0]
-      count = result[1]
+    @@ordered_results.first(10).each do |word,count|
       puts "#{word} | #{count} " + ("*" * count.to_i)
-    }
-
-
+    end
   end
 end
 
