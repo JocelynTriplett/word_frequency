@@ -7,21 +7,21 @@ def fullpath(filename)
 end
 
 class WordfreqTest < Minitest::Test
-  # def test_freq_of_a_word
-  #
-  #   wf = Wordfreq.new fullpath('emancipation_proclamation.txt')
-  #   assert_equal 7, wf.frequency('shall')
-  #   assert_equal 2, wf.frequency('designate')
-  #
-  #   wf = Wordfreq.new fullpath('seneca_falls.txt')
-  #   assert_equal 2, wf.frequency('compelled')
-  #   assert_equal 6, wf.frequency('women')
-  # end
+  def test_freq_of_a_word
 
-  # def test_word_not_present_has_freq_of_0
-  #   wf = Wordfreq.new fullpath('seneca_falls.txt')
-  #   assert_equal 0, wf.frequency('computer')
-  # end
+    wf = Wordfreq.new fullpath('emancipation_proclamation.txt')
+    assert_equal 7, wf.frequency('shall')
+    assert_equal 2, wf.frequency('designate')
+
+    wf = Wordfreq.new fullpath('seneca_falls.txt')
+    assert_equal 2, wf.frequency('compelled')
+    assert_equal 6, wf.frequency('women')
+  end
+
+  def test_word_not_present_has_freq_of_0
+    wf = Wordfreq.new fullpath('seneca_falls.txt')
+    assert_equal 0, wf.frequency('computer')
+  end
 
   def test_frequencies
     wf = Wordfreq.new fullpath('emancipation_proclamation.txt')

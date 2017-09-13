@@ -25,17 +25,16 @@ class Wordfreq
     'were', 'will', 'with']
 
   def initialize(filename)
-    @@words = File.read(filename).downcase.gsub(/[^a-z0-9\s]/i, '').split(/ /) - STOP_WORDS
-
-    puts @@words
+    @@words = File.read(filename).downcase.gsub(/[^a-z0-9\s]/i, ' ').split(/ /) - STOP_WORDS
   end
 
   def frequency(word)
-
-
+    @@words.count(word)
   end
 
   def frequencies
+    # https://jerodsanto.net/2013/10/ruby-quick-tip-easily-count-occurrences-of-array-elements/
+
     counts = Hash.new 0
 
     @@words.each do |word|
