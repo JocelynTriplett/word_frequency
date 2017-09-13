@@ -41,7 +41,7 @@ class Wordfreq
   end
 
   def frequencies
-    return @@counts
+    @@counts
   end
 
   def top_words(number)
